@@ -10,6 +10,7 @@
 #endif
 #endif
 
+#import "SFCheckResultView.h"
 #import "SFLoadingView.h"
 
 FOUNDATION_EXPORT double SFAnimationVersionNumber;
