@@ -1,0 +1,29 @@
+# SFAnimation
+
+[![CI Status](https://img.shields.io/travis/jack110530/SFAnimation.svg?style=flat)](https://travis-ci.org/jack110530/SFAnimation)
+[![Version](https://img.shields.io/cocoapods/v/SFAnimation.svg?style=flat)](https://cocoapods.org/pods/SFAnimation)
+[![License](https://img.shields.io/cocoapods/l/SFAnimation.svg?style=flat)](https://cocoapods.org/pods/SFAnimation)
+[![Platform](https://img.shields.io/cocoapods/p/SFAnimation.svg?style=flat)](https://cocoapods.org/pods/SFAnimation)
+
+## Example
+
+To run the example project, clone the repo, and run `pod install` from the Example directory first.
+
+## Requirements
+
+## Installation
+
+SFAnimation is available through [CocoaPods](https://cocoapods.org). To install
+it, simply add the following line to your Podfile:
+
+```ruby
+pod 'SFAnimation'
+```
+
+## Author
+
+jack110530, jack110530@163.com
+
+## License
+
+SFAnimation is available under the MIT license. See the LICENSE file for more info.

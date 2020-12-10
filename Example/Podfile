@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '9.0'
+
+target 'SFAnimation_Example' do
+  pod 'SFAnimation', :path => '../'
+
+  target 'SFAnimation_Tests' do
+    inherit! :search_paths
+
+    pod 'FBSnapshotTestCase'
+  end
+end
