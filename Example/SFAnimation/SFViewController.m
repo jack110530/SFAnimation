@@ -8,6 +8,8 @@
 
 #import "SFViewController.h"
 
+#import <SFAnimation/SFLoadingView.h>
+
 @interface SFViewController ()
 
 @end
@@ -17,7 +19,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    self.view.backgroundColor = [UIColor whiteColor];
+    SFLoadingView *loadingView = [[SFLoadingView alloc]initWithFrame:CGRectMake(100, 200, 100, 100)];
+    [self.view addSubview:loadingView];
+    [loadingView start];
 }
 
 - (void)didReceiveMemoryWarning

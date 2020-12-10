@@ -1,0 +1,6 @@
+framework module SFAnimation {
+  umbrella header "SFAnimation-umbrella.h"
+
+  export *
+  module * { export * }
+}

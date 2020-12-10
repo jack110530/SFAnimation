@@ -1,0 +1,27 @@
+PODS:
+  - FBSnapshotTestCase (2.1.4):
+    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
+  - FBSnapshotTestCase/Core (2.1.4)
+  - FBSnapshotTestCase/SwiftSupport (2.1.4):
+    - FBSnapshotTestCase/Core
+  - SFAnimation (0.1.0)
+
+DEPENDENCIES:
+  - FBSnapshotTestCase
+  - SFAnimation (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - FBSnapshotTestCase
+
+EXTERNAL SOURCES:
+  SFAnimation:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
+  SFAnimation: 5a1cab98d0db1beb5fd656559a3d1c592482cff8
+
+PODFILE CHECKSUM: 525041cb531e0544385c1330f8501a0df4d733ba
+
+COCOAPODS: 1.9.3
