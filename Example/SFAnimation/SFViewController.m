@@ -21,12 +21,12 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    SFLoadingViewA *loadingView = [[SFLoadingViewA alloc]initWithFrame:CGRectMake(100, 200, 100, 100)];
+    SFCircleLoadingView *loadingView = [[SFCircleLoadingView alloc]initWithFrame:CGRectMake(100, 200, 100, 100)];
     [self.view addSubview:loadingView];
     loadingView.startAngle = -M_PI;
     loadingView.endAngle = M_PI_2;
     loadingView.duration = 3;
-    loadingView.withGrow = YES;
+    loadingView.loadingLineColor = [UIColor redColor];
     [loadingView start];
     
     

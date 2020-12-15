@@ -9,28 +9,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef NS_ENUM(NSUInteger, SFLoadingStyle) {
-    SFLoadingStyleDefault,
-};
-
 @interface SFLoadingView : UIView
 <CAAnimationDelegate>
-
-/// 是否有圆环，默认有
-@property (nonatomic, assign) IBInspectable BOOL withCircle;
-
-// MARK: 圆环
-/// 默认5
-@property (nonatomic, assign) IBInspectable CGFloat circleLineWidth;
-/// 默认grayColor, alpha=0.1
-@property (nonatomic, strong) IBInspectable UIColor *circleLineColor;
-
-// MARK: 指示环
-/// 默认5
-@property (nonatomic, assign) CGFloat loadingLineWidth;
-/// 默认orangeColor
-@property (nonatomic, strong) UIColor *loadingLineColor;
-
 
 #pragma mark - api
 - (void)start;
@@ -43,8 +23,29 @@ typedef NS_ENUM(NSUInteger, SFLoadingStyle) {
 @end
 
 
-#pragma mark - SFLoadingViewA
-@interface SFLoadingViewA : SFLoadingView
+#pragma mark - SFCircleLoadingView
+
+typedef NS_ENUM(NSUInteger, SFCircleLoadingAnimation) {
+    SFCircleLoadingAnimationDefault,
+    SFCircleLoadingAnimationGrowFirst,
+    SFCircleLoadingAnimationGrowSync,
+};
+
+@interface SFCircleLoadingView : SFLoadingView
+@property (nonatomic, assign) SFCircleLoadingAnimation animation;
+/// 是否有圆环，默认有
+@property (nonatomic, assign) IBInspectable BOOL withCircle;
+// MARK: 圆环
+/// 默认5
+@property (nonatomic, assign) IBInspectable CGFloat circleLineWidth;
+/// 默认grayColor, alpha=0.1
+@property (nonatomic, strong) IBInspectable UIColor *circleLineColor;
+
+// MARK: 指示环
+/// 默认5
+@property (nonatomic, assign) CGFloat loadingLineWidth;
+/// 默认orangeColor
+@property (nonatomic, strong) UIColor *loadingLineColor;
 /// 默认-M_PI_2
 @property (nonatomic, assign) CGFloat startAngle;
 /// 默认-M_PI_4
@@ -53,18 +54,7 @@ typedef NS_ENUM(NSUInteger, SFLoadingStyle) {
 @property (nonatomic, assign) CFTimeInterval duration;
 /// 动画方式，默认kCAMediaTimingFunctionLinear
 @property (nonatomic, assign) CAMediaTimingFunctionName timingFunc;
-/// 是否从0增长
-@property (nonatomic, assign) BOOL withGrow;
 
-@end
-
-
-#pragma mark - SFLoadingViewB
-@interface SFLoadingViewB : SFLoadingView
-/// 默认-M_PI_2
-@property (nonatomic, assign) CGFloat startAngle;
-/// 默认-M_PI_4
-@property (nonatomic, assign) CGFloat endAngle;
 
 
 @end
