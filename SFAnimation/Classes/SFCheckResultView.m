@@ -151,6 +151,7 @@
     self.failureAnimation.fromValue = @(0.0f);
     self.failureAnimation.toValue = @(1.0f);
     self.failureAnimation.delegate = self;
+    
     [self.failureAnimation setValue:@"failureAnimation" forKey:@"animationName"];
     
     self.failureLineWidth = 5;

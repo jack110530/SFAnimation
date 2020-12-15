@@ -21,22 +21,14 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    SFLoadingView *loadingView = [[SFLoadingView alloc]initWithFrame:CGRectMake(100, 200, 100, 100)];
+    SFLoadingViewA *loadingView = [[SFLoadingViewA alloc]initWithFrame:CGRectMake(100, 200, 100, 100)];
     [self.view addSubview:loadingView];
-    loadingView.rangePercent = 0.5;
-    loadingView.speed = 0.5/60.f;
+    loadingView.startAngle = -M_PI;
+    loadingView.endAngle = M_PI_2;
+    loadingView.duration = 3;
+    loadingView.withGrow = YES;
     [loadingView start];
     
-    SFCheckResultView *resultView = [[SFCheckResultView alloc]initWithFrame:CGRectMake(100, 400, 100, 100)];
-    [self.view addSubview:resultView];
-//    resultView.circleDuration = 0.2;
-//    resultView.circleLineWidth = 10;
-//    resultView.circleLineColor = [UIColor blackColor];
-//    resultView.successDuration = 1;
-//    resultView.successLineColor = [UIColor redColor];
-//    resultView.successLineWidth = 10;
-    resultView.style = 1;
-    [resultView start];
     
 }
 
