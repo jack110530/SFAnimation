@@ -127,7 +127,29 @@
 }
 
 - (BOOL)customLoadingAnimation {
-    [self animationGrowSync];
+    switch (self.animation) {
+        case SFCircleLoadingAnimationDefault:
+        {
+            [self animationDefault];
+        }
+            break;
+            
+        case SFCircleLoadingAnimationGrowFirst:
+        {
+            [self animationGrowFirst];
+        }
+            break;
+            
+        case SFCircleLoadingAnimationGrowSync:
+        {
+            [self animationGrowSync];
+        }
+            break;
+            
+        default:
+            break;
+    }
+    
     return YES;
 }
 

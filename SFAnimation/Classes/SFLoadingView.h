@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - SFCircleLoadingView
 
 typedef NS_ENUM(NSUInteger, SFCircleLoadingAnimation) {
-    SFCircleLoadingAnimationDefault,
+    SFCircleLoadingAnimationDefault = 0,
     SFCircleLoadingAnimationGrowFirst,
     SFCircleLoadingAnimationGrowSync,
 };

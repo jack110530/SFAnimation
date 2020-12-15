@@ -25,7 +25,8 @@
     [self.view addSubview:loadingView];
     loadingView.startAngle = -M_PI;
     loadingView.endAngle = M_PI_2;
-    loadingView.duration = 3;
+    loadingView.duration = 1;
+    loadingView.animation = 1;
     loadingView.loadingLineColor = [UIColor redColor];
     [loadingView start];
     
