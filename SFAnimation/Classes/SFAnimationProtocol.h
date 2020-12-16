@@ -9,6 +9,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef NS_ENUM(NSUInteger, SFCircleLoadingTimingFunc) {
+    SFCircleLoadingTimingFuncLinear = 0,
+    SFCircleLoadingTimingFuncEaseIn,
+    SFCircleLoadingTimingFuncEaseOut,
+    SFCircleLoadingTimingFuncEaseInEaseOut,
+};
+
 @protocol SFAnimationProtocol <NSObject, CAAnimationDelegate>
 
 #pragma mark - api
@@ -16,9 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)pause;
 
 #pragma mark - 在子类中实现
-- (CAShapeLayer *)customAnimationLayer;
 - (void)customPath;
-- (BOOL)customAnimation;
+- (void)customAnimation;
 
 @end
 

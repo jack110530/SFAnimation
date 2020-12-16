@@ -5,48 +5,31 @@
 //  Created by 黄山锋 on 2020/12/10.
 //
 
-#import <UIKit/UIKit.h>
+#import "SFAnimationView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef NS_ENUM(NSUInteger, SFCheckResultStyle) {
-    SFCheckResultStyleSuccess = 0,
-    SFCheckResultStyleFailure,
-};
+@interface SFCheckResultView : SFAnimationView
 
-@interface SFCheckResultView : UIView
-/// 样式，默认success
-@property (nonatomic, assign) SFCheckResultStyle style;
-/// 是否有圆环，默认有
-@property (nonatomic, assign) BOOL withCircle;
-// MARK: 圆环
-/// 默认5
-@property (nonatomic, assign) CGFloat circleLineWidth;
-/// 默认grayColor
-@property (nonatomic, strong) UIColor *circleLineColor;
-/// 默认0.5s
-@property (nonatomic, assign) CFTimeInterval circleDuration;
+// MARK: 边框
+/// 是否有边框，默认有
+@property (nonatomic, assign) IBInspectable BOOL withBorder;
+/// 边框宽度，默认5
+@property (nonatomic, assign) IBInspectable CGFloat borderLineWidth;
+/// 边框颜色，默认：对号（greenColor，alpha=0.1）错号（redColor，alpha=0.1）
+@property (nonatomic, strong) IBInspectable UIColor *borderLineColor;
+/// 边框动画时长，默认0.3s
+@property (nonatomic, assign) CFTimeInterval borderDuration;
 
-// MARK: 对号
-/// 默认5
-@property (nonatomic, assign) CGFloat successLineWidth;
-/// 默认greenColor
-@property (nonatomic, strong) UIColor *successLineColor;
-/// 默认0.2s
-@property (nonatomic, assign) CFTimeInterval successDuration;
-
-// MARK: 错号
-/// 默认5
-@property (nonatomic, assign) CGFloat failureLineWidth;
-/// 默认redColor
-@property (nonatomic, strong) UIColor *failureLineColor;
-/// 默认0.2s
-@property (nonatomic, assign) CFTimeInterval failureDuration;
-
-
-#pragma mark - api
-- (void)start;
-- (void)pause;
+// MARK: result（对号/错号）
+/// true对号，false错号，默认true
+@property (nonatomic, assign) IBInspectable BOOL success;
+/// result宽度，默认5
+@property (nonatomic, assign) IBInspectable CGFloat resultLineWidth;
+/// result颜色，默认：对号（greenColor）错号（redColor）
+@property (nonatomic, strong) IBInspectable UIColor *resultLineColor;
+/// result动画时长，默认0.8s
+@property (nonatomic, assign) CFTimeInterval resultDuration;
 
 @end
 

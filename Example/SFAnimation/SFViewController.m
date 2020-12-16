@@ -9,8 +9,11 @@
 #import "SFViewController.h"
 
 #import <SFAnimation/SFCircleLoadingView.h>
+#import <SFAnimation/SFCheckResultView.h>
 
 @interface SFViewController ()
+
+@property (weak, nonatomic) IBOutlet SFCheckResultView *xibView;
 
 @end
 
@@ -26,6 +29,7 @@
     loadingView.loadingLineColor = [UIColor redColor];
     [loadingView start];
     
+    [self.xibView start];
 }
 
 - (void)didReceiveMemoryWarning

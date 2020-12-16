@@ -15,12 +15,6 @@ typedef NS_ENUM(NSUInteger, SFCircleLoadingAnimation) {
     SFCircleLoadingAnimationGrowSyncRotate,
     SFCircleLoadingAnimationGrowThenReduce,
 };
-typedef NS_ENUM(NSUInteger, SFCircleLoadingTimingFunc) {
-    SFCircleLoadingTimingFuncLinear = 0,
-    SFCircleLoadingTimingFuncEaseIn,
-    SFCircleLoadingTimingFuncEaseOut,
-    SFCircleLoadingTimingFuncEaseInEaseOut,
-};
 
 @interface SFCircleLoadingView : SFAnimationView
 

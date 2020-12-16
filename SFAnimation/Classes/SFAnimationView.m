@@ -7,6 +7,7 @@
 
 #import "SFAnimationView.h"
 
+
 @interface SFAnimationView ()
 @property (nonatomic, strong) CAShapeLayer *animationLayer;
 @end
@@ -18,23 +19,22 @@
     [self customAnimation];
 }
 - (void)pause {
-    [[self customAnimationLayer] removeAllAnimations];
+    for (CALayer *layer in self.layer.sublayers) {
+        [layer removeAllAnimations];
+    }
 }
 
 - (void)drawRect:(CGRect)rect {
     [self customPath];
-    [self.layer addSublayer:[self customAnimationLayer]];
+    [self.layer addSublayer:self.animationLayer];
 }
 
-#pragma mark - 在子类中实现
-- (CAShapeLayer *)customAnimationLayer {
-    return self.animationLayer;
-}
-- (BOOL)customAnimation {
-    return NO;
+#pragma mark - custom
+- (void)customAnimation {
+#warning 在子类中自定义
 }
 - (void)customPath {
-    
+#warning 在子类中自定义
 }
 
 

@@ -57,16 +57,14 @@ IB_DESIGNABLE
     _timingFunc = SF_Default_TimingFunc;
     self.animation = SFCircleLoadingAnimationRotate;
     [self configCircleLayer];
-    [self configanimationLayer];
+    [self configAnimationLayer];
 }
 - (void)configCircleLayer {
-    self.circleLayer.fillColor =  [[UIColor clearColor] CGColor];
     self.circleLayer.lineCap = kCALineCapRound;
     self.circleLineWidth = 5;
     self.circleLineColor = [[UIColor grayColor] colorWithAlphaComponent:0.1];
 }
-- (void)configanimationLayer {
-    self.animationLayer.fillColor =  [[UIColor clearColor] CGColor];
+- (void)configAnimationLayer {
     self.animationLayer.lineCap = kCALineCapRound;
     self.loadingLineWidth = 5;
     self.loadingLineColor = [UIColor orangeColor];
@@ -91,7 +89,7 @@ IB_DESIGNABLE
     self.animationLayer.path = path.CGPath;
 }
 
-- (BOOL)customAnimation {
+- (void)customAnimation {
     switch (self.animation) {
         case SFCircleLoadingAnimationRotate:
         {
@@ -120,8 +118,6 @@ IB_DESIGNABLE
         default:
             break;
     }
-    
-    return YES;
 }
 
 #pragma mark - SFCircleLoadingAnimation
@@ -236,7 +232,7 @@ IB_DESIGNABLE
         anim_reduce = anim;
     }
     
-    // loading
+    // rotate
     CABasicAnimation *anim_rotate;
     {
         CGFloat angel = self.endAngle - self.startAngle;
@@ -374,6 +370,7 @@ IB_DESIGNABLE
 - (CAShapeLayer *)circleLayer {
     if (!_circleLayer) {
         _circleLayer = [CAShapeLayer layer];
+        _circleLayer.fillColor = [UIColor clearColor].CGColor;
     }
     return _circleLayer;
 }
