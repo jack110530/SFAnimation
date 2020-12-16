@@ -6,7 +6,7 @@
 [![Platform](https://img.shields.io/cocoapods/p/SFAnimation.svg?style=flat)](https://cocoapods.org/pods/SFAnimation)
 
 ## Feature
-- [ ] 扩展SFCircleLoadingView，增加类似Google加载页面是标签栏上的loading动画；
+- [ ] 扩展SFCircleLoadingView，增加类似Google加载页面是标签栏上的loading动画
 - [ ] 点赞动画👍💗
 - [ ] 波浪动画🌊
 - [ ] ...

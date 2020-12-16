@@ -10,34 +10,47 @@
 NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_ENUM(NSUInteger, SFCircleLoadingAnimation) {
-    SFCircleLoadingAnimationDefault = 0,
-    SFCircleLoadingAnimationGrowFirst,
-    SFCircleLoadingAnimationGrowSync,
+    SFCircleLoadingAnimationRotate = 0,
+    SFCircleLoadingAnimationGrowThenRotate,
+    SFCircleLoadingAnimationGrowSyncRotate,
+    SFCircleLoadingAnimationGrowThenReduce,
+};
+typedef NS_ENUM(NSUInteger, SFCircleLoadingTimingFunc) {
+    SFCircleLoadingTimingFuncLinear = 0,
+    SFCircleLoadingTimingFuncEaseIn,
+    SFCircleLoadingTimingFuncEaseOut,
+    SFCircleLoadingTimingFuncEaseInEaseOut,
 };
 
 @interface SFCircleLoadingView : SFLoadingView
-@property (nonatomic, assign) SFCircleLoadingAnimation animation;
-/// 是否有圆环，默认有
+
+// MARK: 动画
+/// 动画样式
+@property (nonatomic, assign) IBInspectable SFCircleLoadingAnimation animation;
+/// 动画方式，默认SFCircleLoadingTimingFuncLinear
+@property (nonatomic, assign) SFCircleLoadingTimingFunc timingFunc;
+/// 动画时长
+@property (nonatomic, assign) CFTimeInterval duration;
+
+// MARK: 背景环
+/// 是否有背景环，默认有
 @property (nonatomic, assign) IBInspectable BOOL withCircle;
-// MARK: 圆环
-/// 默认5
+/// 背景环宽度，默认5
 @property (nonatomic, assign) IBInspectable CGFloat circleLineWidth;
-/// 默认grayColor, alpha=0.1
+/// 背景环颜色，默认grayColor, alpha=0.1
 @property (nonatomic, strong) IBInspectable UIColor *circleLineColor;
 
 // MARK: 指示环
-/// 默认5
-@property (nonatomic, assign) CGFloat loadingLineWidth;
-/// 默认orangeColor
-@property (nonatomic, strong) UIColor *loadingLineColor;
-/// 默认-M_PI_2
-@property (nonatomic, assign) CGFloat startAngle;
-/// 默认-M_PI_4
-@property (nonatomic, assign) CGFloat endAngle;
-/// 转一圈需要多长时间，默认2s
-@property (nonatomic, assign) CFTimeInterval duration;
-/// 动画方式，默认kCAMediaTimingFunctionLinear
-@property (nonatomic, assign) CAMediaTimingFunctionName timingFunc;
+/// 指示环宽度，默认5
+@property (nonatomic, assign) IBInspectable CGFloat loadingLineWidth;
+/// 指示环颜色，默认orangeColor
+@property (nonatomic, strong) IBInspectable UIColor *loadingLineColor;
+/// 指示环起始角度
+@property (nonatomic, assign) IBInspectable CGFloat startAngle;
+/// 指示环结束角度
+@property (nonatomic, assign) IBInspectable CGFloat endAngle;
+
+
 
 
 

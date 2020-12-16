@@ -15,18 +15,15 @@
 
 #pragma mark - api
 - (void)start {
-    BOOL isCustom = [self customLoadingAnimation];
-    if (isCustom) {
-        [self.layer addSublayer:self.loadingLayer];
-    }
+    [self customLoadingAnimation];
 }
 - (void)pause {
-    [self.loadingLayer removeFromSuperlayer];
+    [self.loadingLayer removeAllAnimations];
 }
-
 
 - (void)drawRect:(CGRect)rect {
     [self customLoadingPath];
+    [self.layer addSublayer:self.loadingLayer];
 }
 
 #pragma mark - 在子类中实现
