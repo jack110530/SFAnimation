@@ -59,7 +59,6 @@ IB_DESIGNABLE
     [self configCircleLayer];
     [self configLoadingLayer];
 }
-
 - (void)configCircleLayer {
     self.circleLayer.fillColor =  [[UIColor clearColor] CGColor];
     self.circleLayer.lineCap = kCALineCapRound;

@@ -25,7 +25,6 @@
     [self.view addSubview:loadingView];
     loadingView.animation = SFCircleLoadingAnimationRotate;
     loadingView.loadingLineColor = [UIColor redColor];
-    loadingView.timingFunc = SFCircleLoadingTimingFuncEaseOut;
     [loadingView start];
     
 }

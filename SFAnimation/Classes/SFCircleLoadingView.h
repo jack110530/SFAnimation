@@ -50,10 +50,6 @@ typedef NS_ENUM(NSUInteger, SFCircleLoadingTimingFunc) {
 /// 指示环结束角度
 @property (nonatomic, assign) IBInspectable CGFloat endAngle;
 
-
-
-
-
 @end
 
 NS_ASSUME_NONNULL_END
