@@ -15,6 +15,10 @@
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
+不好意思，Example晚点回完善的。需要的话可以联系我。
+
+email：jack110530@163.com
+
 ## Requirements
 
 ## Installation
