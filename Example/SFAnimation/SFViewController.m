@@ -29,7 +29,15 @@
     loadingView.loadingLineColor = [UIColor redColor];
     [loadingView start];
     
+    
+    self.xibView.borderLineColor = [UIColor blackColor];
+    self.xibView.borderLineWidth = 2;
+    self.xibView.borderDuration = 1;
+    self.xibView.resultLineColor = [UIColor blueColor];
+    self.xibView.resultLineWidth = 2;
+    self.xibView.resultDuration = 10;
     [self.xibView start];
+    
 }
 
 - (void)didReceiveMemoryWarning

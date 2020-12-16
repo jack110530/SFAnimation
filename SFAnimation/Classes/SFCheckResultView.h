@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) IBInspectable CGFloat resultLineWidth;
 /// result颜色，默认：对号（greenColor）错号（redColor）
 @property (nonatomic, strong) IBInspectable UIColor *resultLineColor;
-/// result动画时长，默认0.8s
+/// result动画时长，默认0.6s
 @property (nonatomic, assign) CFTimeInterval resultDuration;
 
 @end

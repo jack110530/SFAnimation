@@ -41,8 +41,8 @@ IB_DESIGNABLE
 #pragma mark - config
 - (void)config {
     self.success = YES;
-    self.borderDuration = 1;
-    self.resultDuration = 3;
+    self.borderDuration = 0.3;
+    self.resultDuration = 0.6;
     [self configBorderLayer];
     [self configAnimationLayer];
 }
@@ -64,22 +64,33 @@ IB_DESIGNABLE
 
 #pragma mark - custom
 - (void)customAnimation {
-    // border
-    CABasicAnimation *anmi_border;
-    {
-        CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
-        anim.fromValue = [NSNumber numberWithFloat:0.0];
-        anim.toValue = [NSNumber numberWithFloat:1.0];
-        anim.removedOnCompletion = NO;
-        anim.fillMode = kCAFillModeForwards;
-        anim.beginTime = CACurrentMediaTime() + 0;
-        anim.duration = self.borderDuration;
-        anim.repeatCount = 1;
-        anmi_border = anim;
-        [self.borderLayer addAnimation:anim forKey:@"anmi_border"];
+    if (self.withBorder) {
+        // border
+        CABasicAnimation *anmi_border;
+        {
+            CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
+            anim.fromValue = [NSNumber numberWithFloat:0.0];
+            anim.toValue = [NSNumber numberWithFloat:1.0];
+            anim.removedOnCompletion = NO;
+            anim.fillMode = kCAFillModeForwards;
+            anim.beginTime = CACurrentMediaTime() + 0;
+            anim.duration = self.borderDuration;
+            anim.repeatCount = 1;
+            anmi_border = anim;
+            [self.borderLayer addAnimation:anim forKey:@"anmi_border"];
+        }
+        // result
+        self.animationLayer.hidden = YES;
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(self.borderDuration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            self.animationLayer.hidden = NO;
+            [self resultAnimation];
+        });
+    }else{
+        // result
+        [self resultAnimation];
     }
-    
-    // result
+}
+- (void)resultAnimation {
     CABasicAnimation *anmi_result;
     {
         CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
@@ -87,7 +98,7 @@ IB_DESIGNABLE
         anim.toValue = [NSNumber numberWithFloat:1.0];
         anim.removedOnCompletion = NO;
         anim.fillMode = kCAFillModeForwards;
-        anim.beginTime = anmi_border.beginTime + anmi_border.duration;
+        anim.beginTime = CACurrentMediaTime() + 0;
         anim.duration = self.resultDuration;
         anim.repeatCount = 1;
         anmi_result = anim;
