@@ -9,7 +9,7 @@
 #import "SFViewController.h"
 
 #import <SFAnimation/SFLoadingView.h>
-#import <SFAnimation/SFCheckResultView.h>
+#import <SFAnimation/SFCircleLoadingView.h>
 
 @interface SFViewController ()
 
@@ -25,11 +25,10 @@
     [self.view addSubview:loadingView];
     loadingView.startAngle = -M_PI;
     loadingView.endAngle = M_PI_2;
-    loadingView.duration = 1;
+    loadingView.duration = 2;
     loadingView.animation = 1;
     loadingView.loadingLineColor = [UIColor redColor];
     [loadingView start];
-    
     
 }
 

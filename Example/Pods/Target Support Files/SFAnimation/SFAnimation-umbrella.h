@@ -11,6 +11,7 @@
 #endif
 
 #import "SFCheckResultView.h"
+#import "SFCircleLoadingView.h"
 #import "SFLoadingView.h"
 
 FOUNDATION_EXPORT double SFAnimationVersionNumber;
