@@ -10,9 +10,10 @@
 #endif
 #endif
 
+#import "SFAnimationProtocol.h"
+#import "SFAnimationView.h"
 #import "SFCheckResultView.h"
 #import "SFCircleLoadingView.h"
-#import "SFLoadingView.h"
 
 FOUNDATION_EXPORT double SFAnimationVersionNumber;
 FOUNDATION_EXPORT const unsigned char SFAnimationVersionString[];

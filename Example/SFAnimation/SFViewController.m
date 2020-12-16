@@ -8,7 +8,6 @@
 
 #import "SFViewController.h"
 
-#import <SFAnimation/SFLoadingView.h>
 #import <SFAnimation/SFCircleLoadingView.h>
 
 @interface SFViewController ()
@@ -23,7 +22,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     SFCircleLoadingView *loadingView = [[SFCircleLoadingView alloc]initWithFrame:CGRectMake(100, 200, 100, 100)];
     [self.view addSubview:loadingView];
-    loadingView.animation = SFCircleLoadingAnimationRotate;
+    loadingView.animation = SFCircleLoadingAnimationGrowThenReduce;
     loadingView.loadingLineColor = [UIColor redColor];
     [loadingView start];
     

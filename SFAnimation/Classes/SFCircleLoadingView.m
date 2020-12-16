@@ -57,7 +57,7 @@ IB_DESIGNABLE
     _timingFunc = SF_Default_TimingFunc;
     self.animation = SFCircleLoadingAnimationRotate;
     [self configCircleLayer];
-    [self configLoadingLayer];
+    [self configanimationLayer];
 }
 - (void)configCircleLayer {
     self.circleLayer.fillColor =  [[UIColor clearColor] CGColor];
@@ -65,9 +65,9 @@ IB_DESIGNABLE
     self.circleLineWidth = 5;
     self.circleLineColor = [[UIColor grayColor] colorWithAlphaComponent:0.1];
 }
-- (void)configLoadingLayer {
-    self.loadingLayer.fillColor =  [[UIColor clearColor] CGColor];
-    self.loadingLayer.lineCap = kCALineCapRound;
+- (void)configanimationLayer {
+    self.animationLayer.fillColor =  [[UIColor clearColor] CGColor];
+    self.animationLayer.lineCap = kCALineCapRound;
     self.loadingLineWidth = 5;
     self.loadingLineColor = [UIColor orangeColor];
 }
@@ -81,17 +81,17 @@ IB_DESIGNABLE
 
 
 #pragma mark - custom
-- (void)customLoadingPath {
-    self.loadingLayer.frame = self.bounds;
-    CGFloat radius = self.loadingLayer.bounds.size.width/2.0f - self.loadingLineWidth/2.0f;
-    CGFloat centerX = self.loadingLayer.bounds.size.width/2.0f;
-    CGFloat centerY = self.loadingLayer.bounds.size.height/2.0f;
+- (void)customPath {
+    self.animationLayer.frame = self.bounds;
+    CGFloat radius = self.animationLayer.bounds.size.width/2.0f - self.loadingLineWidth/2.0f;
+    CGFloat centerX = self.animationLayer.bounds.size.width/2.0f;
+    CGFloat centerY = self.animationLayer.bounds.size.height/2.0f;
     UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(centerX, centerY) radius:radius startAngle:self.startAngle endAngle:self.endAngle clockwise:true];
     path.lineCapStyle = kCGLineCapRound;
-    self.loadingLayer.path = path.CGPath;
+    self.animationLayer.path = path.CGPath;
 }
 
-- (BOOL)customLoadingAnimation {
+- (BOOL)customAnimation {
     switch (self.animation) {
         case SFCircleLoadingAnimationRotate:
         {
@@ -134,7 +134,7 @@ IB_DESIGNABLE
     anim_rotate.duration = self.duration;
     anim_rotate.repeatCount = MAXFLOAT;
     anim_rotate.timingFunction = [self getUsefulTimingFunc];
-    [self.loadingLayer addAnimation:anim_rotate forKey:@"anim_rotate"];
+    [self.animationLayer addAnimation:anim_rotate forKey:@"anim_rotate"];
 }
 // MARK: SFCircleLoadingAnimationGrowThenRotate
 - (void)animationGrowThenRotate {
@@ -157,7 +157,7 @@ IB_DESIGNABLE
         anim.repeatCount = 1;
         anim.timingFunction = [self getUsefulTimingFunc];
         anim_grow = anim;
-        [self.loadingLayer addAnimation:anim forKey:@"anim_grow"];
+        [self.animationLayer addAnimation:anim forKey:@"anim_grow"];
     }
     
     // rotate
@@ -170,7 +170,7 @@ IB_DESIGNABLE
         anim.duration = self.duration - anim_grow.duration;
         anim.repeatCount = MAXFLOAT;
         anim_rotate = anim;
-        [self.loadingLayer addAnimation:anim forKey:@"anim_rotate"];
+        [self.animationLayer addAnimation:anim forKey:@"anim_rotate"];
     }
 }
 // MARK: SFCircleLoadingAnimationGrowSyncRotate
@@ -188,7 +188,7 @@ IB_DESIGNABLE
         anim.repeatCount = 1;
         anim.timingFunction = [self getUsefulTimingFunc];
         anim_grow = anim;
-        [self.loadingLayer addAnimation:anim forKey:@"anim_grow"];
+        [self.animationLayer addAnimation:anim forKey:@"anim_grow"];
     }
     
     // rotate
@@ -201,7 +201,7 @@ IB_DESIGNABLE
         anim.duration = self.duration;
         anim.repeatCount = MAXFLOAT;
         anim_rotate = anim;
-        [self.loadingLayer addAnimation:anim forKey:@"anim_rotate"];
+        [self.animationLayer addAnimation:anim forKey:@"anim_rotate"];
     }
 }
 // MARK: SFCircleLoadingAnimationGrowThenReduce
@@ -262,7 +262,7 @@ IB_DESIGNABLE
         anim.duration = self.duration;
         anim.animations = @[anim_grow, anim_reduce, anim_rotate];
         anim_group = anim;
-        [self.loadingLayer addAnimation:anim forKey:@"anim_group"];
+        [self.animationLayer addAnimation:anim forKey:@"anim_group"];
     }
 }
 
@@ -362,11 +362,11 @@ IB_DESIGNABLE
 }
 - (void)setLoadingLineWidth:(CGFloat)loadingLineWidth {
     _loadingLineWidth = loadingLineWidth;
-    self.loadingLayer.lineWidth = loadingLineWidth;
+    self.animationLayer.lineWidth = loadingLineWidth;
 }
 - (void)setLoadingLineColor:(UIColor *)loadingLineColor {
     _loadingLineColor = loadingLineColor;
-    self.loadingLayer.strokeColor = loadingLineColor.CGColor;
+    self.animationLayer.strokeColor = loadingLineColor.CGColor;
 }
 
 

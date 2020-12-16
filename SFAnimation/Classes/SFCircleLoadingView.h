@@ -5,7 +5,7 @@
 //  Created by 黄山锋 on 2020/12/16.
 //
 
-#import "SFLoadingView.h"
+#import "SFAnimationView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -22,7 +22,7 @@ typedef NS_ENUM(NSUInteger, SFCircleLoadingTimingFunc) {
     SFCircleLoadingTimingFuncEaseInEaseOut,
 };
 
-@interface SFCircleLoadingView : SFLoadingView
+@interface SFCircleLoadingView : SFAnimationView
 
 // MARK: 动画
 /// 动画样式
