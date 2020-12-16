@@ -5,6 +5,12 @@
 [![License](https://img.shields.io/cocoapods/l/SFAnimation.svg?style=flat)](https://cocoapods.org/pods/SFAnimation)
 [![Platform](https://img.shields.io/cocoapods/p/SFAnimation.svg?style=flat)](https://cocoapods.org/pods/SFAnimation)
 
+## Feature
+[ ] 扩展SFCircleLoadingView，增加类似Google加载页面是标签栏上的loading动画；
+[ ] 点赞动画👍💗
+[ ] 波浪动画🌊
+[ ] ...
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
@@ -27,3 +33,6 @@ jack110530, jack110530@163.com
 ## License
 
 SFAnimation is available under the MIT license. See the LICENSE file for more info.
+
+
+
