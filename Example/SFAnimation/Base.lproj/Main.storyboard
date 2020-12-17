@@ -30,15 +30,7 @@
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="withBorder" value="YES"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="success" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="resultScale">
-                                        <real key="value" value="0.80000000000000004"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderLineWidth">
-                                        <real key="value" value="9"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="resultLineWidth">
-                                        <real key="value" value="11"/>
-                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="roundCap" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
@@ -48,6 +40,9 @@
                             <constraint firstItem="Mvr-aV-6Um" firstAttribute="top" secondItem="AUA-zx-mJ8" secondAttribute="bottom" constant="100" id="Uc7-UG-xFH"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="xibView" destination="AUA-zx-mJ8" id="jY2-05-VFS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tc2-Qw-aMS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

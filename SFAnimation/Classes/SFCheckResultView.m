@@ -43,16 +43,15 @@ IB_DESIGNABLE
     self.success = YES;
     self.borderDuration = 0.3;
     self.resultDuration = 0.6;
-    self.resultScale = 0.5;
+    self.resultScale = 0.8;
+    self.roundCap = YES;
     [self configBorderLayer];
     [self configAnimationLayer];
 }
 - (void)configBorderLayer {
-//    self.borderLayer.lineCap = kCALineCapRound;
     self.borderLineWidth = 5;
 }
 - (void)configAnimationLayer {
-//    self.animationLayer.lineCap = kCALineCapRound;
     self.resultLineWidth = 5;
 }
 - (void)configCirclePath {
@@ -147,6 +146,22 @@ IB_DESIGNABLE
 
 
 #pragma mark - setter
+- (void)setBorderLineWidth:(CGFloat)borderLineWidth {
+    _borderLineWidth = borderLineWidth;
+    self.borderLayer.lineWidth = borderLineWidth;
+}
+- (void)setBorderLineColor:(UIColor *)borderLineColor {
+    _borderLineColor = borderLineColor;
+    self.borderLayer.strokeColor = borderLineColor.CGColor;
+}
+- (void)setResultLineWidth:(CGFloat)resultLineWidth {
+    _resultLineWidth = resultLineWidth;
+    self.animationLayer.lineWidth = resultLineWidth;
+}
+- (void)setResultLineColor:(UIColor *)resultLineColor {
+    _resultLineColor = resultLineColor;
+    self.animationLayer.strokeColor = resultLineColor.CGColor;
+}
 - (void)setSuccess:(BOOL)success {
     _success = success;
     if (success) {
@@ -167,21 +182,11 @@ IB_DESIGNABLE
     _resultScale = resultScale;
     [self setNeedsDisplay];
 }
-- (void)setBorderLineWidth:(CGFloat)borderLineWidth {
-    _borderLineWidth = borderLineWidth;
-    self.borderLayer.lineWidth = borderLineWidth;
-}
-- (void)setBorderLineColor:(UIColor *)borderLineColor {
-    _borderLineColor = borderLineColor;
-    self.borderLayer.strokeColor = borderLineColor.CGColor;
-}
-- (void)setResultLineWidth:(CGFloat)resultLineWidth {
-    _resultLineWidth = resultLineWidth;
-    self.animationLayer.lineWidth = resultLineWidth;
-}
-- (void)setResultLineColor:(UIColor *)resultLineColor {
-    _resultLineColor = resultLineColor;
-    self.animationLayer.strokeColor = resultLineColor.CGColor;
+- (void)setRoundCap:(BOOL)roundCap {
+    _roundCap = roundCap;
+    self.borderLayer.lineCap = self.roundCap ? kCALineCapRound : kCALineCapButt;
+    self.animationLayer.lineCap = self.roundCap ? kCALineCapRound : kCALineCapButt;
+    [self setNeedsDisplay];
 }
 
 #pragma mark - getter

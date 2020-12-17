@@ -32,10 +32,12 @@
     
 //    self.xibView.borderLineColor = [UIColor blackColor];
 //    self.xibView.borderLineWidth = 2;
-//    self.xibView.borderDuration = 1;
+    self.xibView.borderDuration = 2;
 //    self.xibView.resultLineColor = [UIColor blueColor];
 //    self.xibView.resultLineWidth = 2;
-//    self.xibView.resultDuration = 10;
+    self.xibView.resultDuration = 1;
+    self.xibView.resultScale = 0.5;
+    self.xibView.roundCap = NO;
     [self.xibView start];
     
 }

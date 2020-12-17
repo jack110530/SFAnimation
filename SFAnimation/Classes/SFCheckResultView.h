@@ -28,10 +28,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) IBInspectable CGFloat resultLineWidth;
 /// result颜色，默认：对号（greenColor）错号（redColor）
 @property (nonatomic, strong) IBInspectable UIColor *resultLineColor;
+/// result缩放比例（0~1）默认0.8
+@property (nonatomic, assign) IBInspectable double resultScale;
+/// 是否圆形端点，默认true
+@property (nonatomic, assign) IBInspectable BOOL roundCap;
 /// result动画时长，默认0.6s
 @property (nonatomic, assign) CFTimeInterval resultDuration;
-/// result缩放比例（0~1）默认0.5
-@property (nonatomic, assign) IBInspectable double resultScale;
 
 @end
 

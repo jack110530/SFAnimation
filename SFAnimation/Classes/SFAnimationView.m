@@ -29,14 +29,6 @@
     [self.layer addSublayer:self.animationLayer];
 }
 
-#pragma mark - custom
-- (void)customAnimation {
-#warning 在子类中自定义
-}
-- (void)customPath {
-#warning 在子类中自定义
-}
-
 
 
 #pragma mark - getter
