@@ -30,7 +30,7 @@ IB_DESIGNABLE
 
 - (void)drawRect:(CGRect)rect {
     if (self.withBorder) {
-        [self configCirclePath];
+        [self configBorderPath];
         [self.layer insertSublayer:self.borderLayer atIndex:0];
     }else{
         [self.borderLayer removeFromSuperlayer];
@@ -54,10 +54,15 @@ IB_DESIGNABLE
 - (void)configAnimationLayer {
     self.resultLineWidth = 5;
 }
-- (void)configCirclePath {
+- (void)configBorderPath {
     self.borderLayer.frame = self.bounds;
-    CGFloat radius = self.bounds.size.width/2.0f - self.borderLineWidth/2.0f;
-    UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:self.borderLayer.position radius:radius startAngle:-M_PI/2 endAngle:M_PI*3/2 clockwise:true];
+    UIBezierPath *path;
+    if (self.squareBorder) {
+        path = [UIBezierPath bezierPathWithRoundedRect:self.bounds cornerRadius:4];
+    }else{
+        CGFloat radius = self.bounds.size.width/2.0f - self.borderLineWidth/2.0f;
+        path = [UIBezierPath bezierPathWithArcCenter:self.borderLayer.position radius:radius startAngle:-M_PI/2 endAngle:M_PI*3/2 clockwise:true];
+    }
     self.borderLayer.path = path.CGPath;
 }
 
@@ -108,7 +113,6 @@ IB_DESIGNABLE
 - (void)customPath {
     CGFloat width = self.bounds.size.width;
     self.animationLayer.frame = self.bounds;
-    // 圆形
     CGFloat r = width/2.0f - self.borderLineWidth;
     CGFloat x_min = r - r*cos(M_PI_4) + self.borderLineWidth;
     CGFloat x_max = r + r*cos(M_PI_4) + self.borderLineWidth;

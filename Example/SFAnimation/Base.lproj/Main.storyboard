@@ -31,6 +31,10 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="withBorder" value="YES"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="success" value="YES"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="roundCap" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="squareBorder" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="resultScale">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
