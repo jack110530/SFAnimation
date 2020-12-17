@@ -18,7 +18,7 @@
 - (void)start {
     [self customAnimation];
 }
-- (void)pause {
+- (void)stop {
     for (CALayer *layer in self.layer.sublayers) {
         [layer removeAllAnimations];
     }

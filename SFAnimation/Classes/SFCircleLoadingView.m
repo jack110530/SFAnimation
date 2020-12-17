@@ -115,6 +115,12 @@ IB_DESIGNABLE
         }
             break;
             
+        case SFCircleLoadingAnimationGrowThenReduceSyncRotate:
+        {
+            [self animationGrowThenReduceSyncRotate];
+        }
+            break;
+            
         default:
             break;
     }
@@ -261,6 +267,70 @@ IB_DESIGNABLE
         [self.animationLayer addAnimation:anim forKey:@"anim_group"];
     }
 }
+// MARK: SFCircleLoadingAnimationGrowThenReduceSyncRotate
+- (void)animationGrowThenReduceSyncRotate {
+    // grow
+    CABasicAnimation *anim_grow;
+    {
+        CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
+        anim.fromValue = [NSNumber numberWithFloat:0.0];
+        anim.toValue = [NSNumber numberWithFloat:1.0];
+        anim.removedOnCompletion = NO;
+        anim.fillMode = kCAFillModeForwards;
+        anim.duration = self.duration/3;
+        anim.beginTime = 0;
+        anim.repeatCount = 1;
+        anim.timingFunction = [self getUsefulTimingFunc];
+        anim_grow = anim;
+    }
+
+    // reduce
+    CABasicAnimation *anim_reduce;
+    {
+        CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@"strokeStart"];
+        anim.fromValue = [NSNumber numberWithFloat:0.0];
+        anim.toValue = [NSNumber numberWithFloat:1.0];
+        anim.removedOnCompletion = NO;
+        anim.fillMode = kCAFillModeForwards;
+        anim.duration = self.duration - anim_grow.duration;
+        anim.beginTime = anim_grow.beginTime + anim_grow.duration;
+        anim.repeatCount = 1;
+        anim.timingFunction = [self getUsefulTimingFunc];
+        anim_reduce = anim;
+    }
+    
+    // group
+    CAAnimationGroup *anim_group;
+    {
+        CAAnimationGroup *anim = [CAAnimationGroup animation];
+        anim.repeatCount = MAXFLOAT;
+        anim.beginTime = CACurrentMediaTime() + 0;
+        anim.duration = self.duration;
+        anim.animations = @[anim_grow, anim_reduce];
+        anim_group = anim;
+        [self.animationLayer addAnimation:anim forKey:@"anim_group"];
+    }
+    
+    // rotate
+    CABasicAnimation *anim_rotate;
+    {
+        CGFloat angel = self.endAngle - self.startAngle;
+        if (angel < 0) {
+            angel += 2*M_PI;
+        }
+        CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+        anim.fromValue = [NSNumber numberWithFloat:0];
+        anim.toValue = [NSNumber numberWithFloat:2*M_PI-angel];
+        anim.removedOnCompletion = NO;
+        anim.fillMode = kCAFillModeForwards;
+        anim.cumulative = YES;
+        anim.beginTime = CACurrentMediaTime() + 0;
+        anim.duration = anim_reduce.duration;
+        anim.repeatCount = MAXFLOAT;
+        anim_rotate = anim;
+        [self.animationLayer addAnimation:anim forKey:@"anim_rotate"];
+    }
+}
 
 #pragma mark - func
 - (CAMediaTimingFunction *)getUsefulTimingFunc{
@@ -335,6 +405,16 @@ IB_DESIGNABLE
             break;
             
         case SFCircleLoadingAnimationGrowThenReduce:
+        {
+            self.withCircle = YES;
+            self.startAngleDefault = -M_PI_2;
+            self.endAngleDefault = M_PI;
+            self.timingFuncDefault = SFCircleLoadingTimingFuncLinear;
+            self.durationDefault = 3;
+        }
+            break;
+            
+        case SFCircleLoadingAnimationGrowThenReduceSyncRotate:
         {
             self.withCircle = YES;
             self.startAngleDefault = -M_PI_2;

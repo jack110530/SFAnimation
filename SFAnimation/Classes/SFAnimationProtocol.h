@@ -19,8 +19,10 @@ typedef NS_ENUM(NSUInteger, SFCircleLoadingTimingFunc) {
 @protocol SFAnimationProtocol <NSObject, CAAnimationDelegate>
 
 #pragma mark - api
+/// 开始动画
 - (void)start;
-- (void)pause;
+/// 结束动画
+- (void)stop;
 
 #pragma mark - 在子类中实现
 - (void)customPath;

@@ -25,7 +25,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     SFCircleLoadingView *loadingView = [[SFCircleLoadingView alloc]initWithFrame:CGRectMake(100, 200, 100, 100)];
     [self.view addSubview:loadingView];
-    loadingView.animation = SFCircleLoadingAnimationGrowThenReduce;
+    loadingView.animation = SFCircleLoadingAnimationGrowThenReduceSyncRotate;
     loadingView.loadingLineColor = [UIColor redColor];
     [loadingView start];
     
@@ -38,6 +38,7 @@
     self.xibView.resultDuration = 1;
     self.xibView.resultScale = 0.8;
     self.xibView.roundCap = NO;
+    
     [self.xibView start];
     
 }

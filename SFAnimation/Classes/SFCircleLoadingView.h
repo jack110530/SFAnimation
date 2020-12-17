@@ -14,6 +14,7 @@ typedef NS_ENUM(NSUInteger, SFCircleLoadingAnimation) {
     SFCircleLoadingAnimationGrowThenRotate,
     SFCircleLoadingAnimationGrowSyncRotate,
     SFCircleLoadingAnimationGrowThenReduce,
+    SFCircleLoadingAnimationGrowThenReduceSyncRotate,
 };
 
 @interface SFCircleLoadingView : SFAnimationView

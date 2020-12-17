@@ -31,9 +31,15 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="withBorder" value="YES"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="success" value="YES"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="roundCap" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="squareBorder" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="squareBorder" value="NO"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="resultScale">
                                         <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderLineWidth">
+                                        <real key="value" value="9"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderLineColor">
+                                        <color key="value" red="0.08235294118" green="0.5327246189" blue="0.89808046819999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>

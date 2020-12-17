@@ -9,6 +9,7 @@
 - [ ] 扩展SFCircleLoadingView，增加类似Google加载页面是标签栏上的loading动画
 - [ ] 点赞动画👍💗
 - [ ] 波浪动画🌊
+- [ ] SFCheckResultView 背景色动画
 - [ ] ...
 
 ## Example
