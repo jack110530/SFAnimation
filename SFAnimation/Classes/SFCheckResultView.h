@@ -30,6 +30,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) IBInspectable UIColor *resultLineColor;
 /// result动画时长，默认0.6s
 @property (nonatomic, assign) CFTimeInterval resultDuration;
+/// result缩放比例（0~1）默认0.5
+@property (nonatomic, assign) IBInspectable double resultScale;
 
 @end
 

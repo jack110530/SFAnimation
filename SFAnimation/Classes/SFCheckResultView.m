@@ -43,15 +43,16 @@ IB_DESIGNABLE
     self.success = YES;
     self.borderDuration = 0.3;
     self.resultDuration = 0.6;
+    self.resultScale = 0.5;
     [self configBorderLayer];
     [self configAnimationLayer];
 }
 - (void)configBorderLayer {
-    self.borderLayer.lineCap = kCALineCapRound;
+//    self.borderLayer.lineCap = kCALineCapRound;
     self.borderLineWidth = 5;
 }
 - (void)configAnimationLayer {
-    self.animationLayer.lineCap = kCALineCapRound;
+//    self.animationLayer.lineCap = kCALineCapRound;
     self.resultLineWidth = 5;
 }
 - (void)configCirclePath {
@@ -108,16 +109,38 @@ IB_DESIGNABLE
 - (void)customPath {
     CGFloat width = self.bounds.size.width;
     self.animationLayer.frame = self.bounds;
+    // 圆形
+    CGFloat r = width/2.0f - self.borderLineWidth;
+    CGFloat x_min = r - r*cos(M_PI_4) + self.borderLineWidth;
+    CGFloat x_max = r + r*cos(M_PI_4) + self.borderLineWidth;
+    CGFloat y_min = x_min;
+    CGFloat y_max = x_max;
+    CGFloat x_range = x_max - x_min;
+    CGFloat y_range = y_max - y_min;
+    CGFloat scale = 1-self.resultScale;
+    CGFloat x_adding = x_range/2.0f *scale;
+    CGFloat y_adding = y_range/2.0f *scale;
+    
     UIBezierPath *path = [UIBezierPath bezierPath];
     if (self.success) {
-        [path moveToPoint:CGPointMake(width*2.7/10,width*5.4/10)];
-        [path addLineToPoint:CGPointMake(width*4.5/10,width*7/10)];
-        [path addLineToPoint:CGPointMake(width*7.8/10,width*3.8/10)];
+        CGFloat offset1 = x_range * self.resultScale * (1.0f/3.0f);
+        CGFloat offset2 = x_range * self.resultScale * (2.0f/3.0f);
+        CGFloat y_offset = -offset1/2; // 整体向上偏移
+        CGPoint p1 = CGPointMake(x_min+x_adding,y_min+y_adding+offset2+y_offset);
+        CGPoint p2 = CGPointMake(x_min+x_adding+offset1,y_max-y_adding+y_offset);
+        CGPoint p3 = CGPointMake(x_max-x_adding,y_min+y_adding+offset1+y_offset);
+        [path moveToPoint:p1];
+        [path addLineToPoint:p2];
+        [path addLineToPoint:p3];
     }else{
-        [path moveToPoint:CGPointMake(width*3.0/10.0,width*3.0/10.0)];
-        [path addLineToPoint:CGPointMake(width*7.0/10.0,width*7.0/10.0)];
-        [path moveToPoint:CGPointMake(width*7.0/10.0,width*3.0/10.0)];
-        [path addLineToPoint:CGPointMake(width*3.0/10.0,width*7.0/10.0)];
+        CGPoint p10 = CGPointMake(x_min+x_adding,y_min+y_adding);
+        CGPoint p11 = CGPointMake(x_max-x_adding,y_max-y_adding);
+        CGPoint p20 = CGPointMake(x_max-x_adding,y_min+y_adding);
+        CGPoint p21 = CGPointMake(x_min+x_adding,y_max-y_adding);
+        [path moveToPoint:p10];
+        [path addLineToPoint:p11];
+        [path moveToPoint:p20];
+        [path addLineToPoint:p21];
     }
     self.animationLayer.path = path.CGPath;
 }
@@ -133,6 +156,16 @@ IB_DESIGNABLE
         self.borderLineColor = [[UIColor redColor] colorWithAlphaComponent:0.1];
         self.resultLineColor = [UIColor redColor];
     }
+}
+- (void)setResultScale:(CGFloat)resultScale {
+    if (resultScale>1) {
+        resultScale = 1.0;
+    }
+    if (resultScale < 0) {
+        resultScale = 0;
+    }
+    _resultScale = resultScale;
+    [self setNeedsDisplay];
 }
 - (void)setBorderLineWidth:(CGFloat)borderLineWidth {
     _borderLineWidth = borderLineWidth;

@@ -20,34 +20,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iZV-KE-SMR" customClass="SFCheckResultView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AUA-zx-mJ8" customClass="SFCheckResultView">
                                 <rect key="frame" x="137.5" y="467" width="100" height="100"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="Nao-q5-wL8"/>
-                                    <constraint firstAttribute="width" constant="100" id="oeu-yp-Zdy"/>
+                                    <constraint firstAttribute="width" constant="100" id="Hj9-HY-WBA"/>
+                                    <constraint firstAttribute="height" constant="100" id="cgC-cB-sNM"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="success" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="withBorder" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="success" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="resultScale">
+                                        <real key="value" value="0.80000000000000004"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderLineWidth">
+                                        <real key="value" value="9"/>
+                                    </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="resultLineWidth">
                                         <real key="value" value="11"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderLineWidth">
-                                        <real key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="withBorder" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="iZV-KE-SMR" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="UTA-Vg-lhi"/>
-                            <constraint firstItem="Mvr-aV-6Um" firstAttribute="top" secondItem="iZV-KE-SMR" secondAttribute="bottom" constant="100" id="sZF-AM-F5R"/>
+                            <constraint firstItem="AUA-zx-mJ8" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="OY9-ae-uki"/>
+                            <constraint firstItem="Mvr-aV-6Um" firstAttribute="top" secondItem="AUA-zx-mJ8" secondAttribute="bottom" constant="100" id="Uc7-UG-xFH"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="xibView" destination="iZV-KE-SMR" id="K13-GA-vk4"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tc2-Qw-aMS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
