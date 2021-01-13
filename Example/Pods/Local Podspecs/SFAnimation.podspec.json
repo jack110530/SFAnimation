@@ -18,6 +18,16 @@
   "platforms": {
     "ios": "9.0"
   },
-  "source_files": "SFAnimation/Classes/**/*",
-  "public_header_files": "SFAnimation/Classes/SFAnimation.h"
+  "source_files": "SFAnimation/Classes/SFAnimation.h",
+  "public_header_files": "SFAnimation/Classes/SFAnimation.h",
+  "frameworks": [
+    "UIKit",
+    "Foundation"
+  ],
+  "subspecs": [
+    {
+      "name": "SFAnimation",
+      "source_files": "SFAnimation/Classes/SFAnimation/*.{h,m}"
+    }
+  ]
 }

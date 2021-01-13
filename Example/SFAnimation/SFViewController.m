@@ -8,8 +8,7 @@
 
 #import "SFViewController.h"
 
-#import <SFAnimation/SFCircleLoadingView.h>
-#import <SFAnimation/SFCheckResultView.h>
+#import <SFAnimation/SFAnimation.h>
 
 @interface SFViewController ()
 

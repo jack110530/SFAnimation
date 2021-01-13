@@ -4,7 +4,9 @@ PODS:
   - FBSnapshotTestCase/Core (2.1.4)
   - FBSnapshotTestCase/SwiftSupport (2.1.4):
     - FBSnapshotTestCase/Core
-  - SFAnimation (0.1.2)
+  - SFAnimation (0.1.2):
+    - SFAnimation/SFAnimation (= 0.1.2)
+  - SFAnimation/SFAnimation (0.1.2)
 
 DEPENDENCIES:
   - FBSnapshotTestCase
@@ -20,7 +22,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
-  SFAnimation: 99b076216876728a8f48341e29b319d78f2596dc
+  SFAnimation: 4035784d5b08e308054bc215f872a784b9d3ef35
 
 PODFILE CHECKSUM: 525041cb531e0544385c1330f8501a0df4d733ba
 

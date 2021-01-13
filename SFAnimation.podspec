@@ -30,15 +30,21 @@ TODO: Add long description of the pod here.
 
   s.ios.deployment_target = '9.0'
 
-  s.source_files = 'SFAnimation/Classes/**/*'
+  s.source_files = 'SFAnimation/Classes/SFAnimation.h'
   s.public_header_files = 'SFAnimation/Classes/SFAnimation.h'
+  
+  # SFAnimation
+  s.subspec 'SFAnimation' do |ss|
+    ss.source_files = 'SFAnimation/Classes/SFAnimation/*.{h,m}'
+  end
+  
   
   # s.resource_bundles = {
   #   'SFAnimation' => ['SFAnimation/Assets/*.png']
   # }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
+   s.frameworks = 'UIKit', 'Foundation'
   # s.dependency 'AFNetworking', '~> 2.3'
   
   
