@@ -25,6 +25,13 @@
     self.view.backgroundColor = [UIColor whiteColor];
     SFCircleLoadingView *loadingView = [[SFCircleLoadingView alloc]initWithFrame:CGRectMake(100, 200, 100, 100)];
     [self.view addSubview:loadingView];
+    /*
+     SFCircleLoadingAnimationRotate = 0,
+     SFCircleLoadingAnimationGrowThenRotate,
+     SFCircleLoadingAnimationGrowSyncRotate,
+     SFCircleLoadingAnimationGrowThenReduce,
+     SFCircleLoadingAnimationGrowThenReduceSyncRotate,
+    */
     loadingView.animation = SFCircleLoadingAnimationGrowThenReduceSyncRotate;
     loadingView.loadingLineColor = [UIColor redColor];
     [loadingView start];

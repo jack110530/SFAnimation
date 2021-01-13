@@ -6,7 +6,7 @@
 //
 
 #import "SFCircleLoadingView.h"
-#define SF_Default_Angel (-1)
+#define SF_Default_Angle (-1)
 #define SF_Default_During (-1)
 #define SF_Default_TimingFunc (-1)
 
@@ -51,8 +51,8 @@ IB_DESIGNABLE
 
 #pragma mark - config
 - (void)config {
-    _startAngle = SF_Default_Angel;
-    _endAngle = SF_Default_Angel;
+    _startAngle = SF_Default_Angle;
+    _endAngle = SF_Default_Angle;
     _duration = SF_Default_During;
     _timingFunc = SF_Default_TimingFunc;
     self.animation = SFCircleLoadingAnimationRotate;
@@ -241,13 +241,13 @@ IB_DESIGNABLE
     // rotate
     CABasicAnimation *anim_rotate;
     {
-        CGFloat angel = self.endAngle - self.startAngle;
-        if (angel < 0) {
-            angel += 2*M_PI;
+        CGFloat angle = self.endAngle - self.startAngle;
+        if (angle < 0) {
+            angle += 2*M_PI;
         }
         CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
         anim.fromValue = [NSNumber numberWithFloat:0];
-        anim.toValue = [NSNumber numberWithFloat:2*M_PI-angel];
+        anim.toValue = [NSNumber numberWithFloat:2*M_PI-angle];
         anim.removedOnCompletion = NO;
         anim.fillMode = kCAFillModeForwards;
         anim.beginTime = anim_reduce.beginTime;
@@ -268,6 +268,7 @@ IB_DESIGNABLE
     }
 }
 // MARK: SFCircleLoadingAnimationGrowThenReduceSyncRotate
+// TODO: 这个动画还没达到理想的效果，有待完善
 - (void)animationGrowThenReduceSyncRotate {
     // grow
     CABasicAnimation *anim_grow;
@@ -314,18 +315,18 @@ IB_DESIGNABLE
     // rotate
     CABasicAnimation *anim_rotate;
     {
-        CGFloat angel = self.endAngle - self.startAngle;
-        if (angel < 0) {
-            angel += 2*M_PI;
+        CGFloat angle = self.endAngle - self.startAngle;
+        if (angle < 0) {
+            angle += 2*M_PI;
         }
         CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
         anim.fromValue = [NSNumber numberWithFloat:0];
-        anim.toValue = [NSNumber numberWithFloat:2*M_PI-angel];
+        anim.toValue = [NSNumber numberWithFloat:angle];
         anim.removedOnCompletion = NO;
         anim.fillMode = kCAFillModeForwards;
         anim.cumulative = YES;
         anim.beginTime = CACurrentMediaTime() + 0;
-        anim.duration = anim_reduce.duration;
+        anim.duration = self.duration;
         anim.repeatCount = MAXFLOAT;
         anim_rotate = anim;
         [self.animationLayer addAnimation:anim forKey:@"anim_rotate"];
@@ -456,14 +457,14 @@ IB_DESIGNABLE
 }
 // MARK: 默认值
 - (CGFloat)startAngle {
-    if (_startAngle == SF_Default_Angel) {
+    if (_startAngle == SF_Default_Angle) {
         return self.startAngleDefault;
     }else{
         return _startAngle;
     }
 }
 - (CGFloat)endAngle {
-    if (_endAngle == SF_Default_Angel) {
+    if (_endAngle == SF_Default_Angle) {
         return self.endAngleDefault;
     }else{
         return _endAngle;

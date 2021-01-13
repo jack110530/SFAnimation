@@ -24,6 +24,15 @@
     }
 }
 
+#pragma mark - SFAnimationProtocol
+- (void)customAnimation {
+    // 在子类中重写实现
+}
+- (void)customPath {
+    // 在子类中重写实现
+}
+
+
 - (void)drawRect:(CGRect)rect {
     [self customPath];
     [self.layer addSublayer:self.animationLayer];

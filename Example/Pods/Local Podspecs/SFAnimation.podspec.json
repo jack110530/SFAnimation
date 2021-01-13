@@ -1,6 +1,6 @@
 {
   "name": "SFAnimation",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "summary": "自定义动画",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/jack110530/SFAnimation",
@@ -13,10 +13,11 @@
   },
   "source": {
     "git": "https://github.com/jack110530/SFAnimation.git",
-    "tag": "0.1.1"
+    "tag": "0.1.2"
   },
   "platforms": {
     "ios": "9.0"
   },
-  "source_files": "SFAnimation/Classes/**/*"
+  "source_files": "SFAnimation/Classes/**/*",
+  "public_header_files": "SFAnimation/Classes/SFAnimation.h"
 }
